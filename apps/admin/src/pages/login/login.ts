@@ -3,9 +3,10 @@ import { ChangeDetectionStrategy, Component, inject, ViewEncapsulation } from '@
 import { FormsModule, NgForm } from '@angular/forms';
 import { Result } from '../../models/result.model';
 import { Router } from '@angular/router';
+import { FormValidateDirective } from 'form-validate-angular';
 
 @Component({
-  imports: [FormsModule],
+  imports: [FormsModule,FormValidateDirective],
   templateUrl: './login.html',
   encapsulation: ViewEncapsulation.None,
   changeDetection: ChangeDetectionStrategy.OnPush
