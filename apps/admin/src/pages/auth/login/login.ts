@@ -26,7 +26,7 @@ export default class Login {
 
     this.loading.set(true);
     this.#http.post<string>(`/rent/auth/login`, form.value, (res) => {
-      localStorage.setItem("token",res);
+      localStorage.setItem("response",res);
       this.#router.navigateByUrl("/");
       this.loading.set(false);
     }, () => this.loading.set(false));
