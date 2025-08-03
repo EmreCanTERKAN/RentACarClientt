@@ -16,6 +16,7 @@ export default class Login {
   readonly email = signal<string>("");
 
   readonly closeBtn = viewChild<ElementRef<HTMLButtonElement>>("modalCloseBtn");
+  readonly passwordEl = viewChild<ElementRef<HTMLInputElement>>("passwordEl");  
 
   readonly #http = inject(HttpService);
   readonly #router = inject(Router);
@@ -38,4 +39,10 @@ export default class Login {
       this.closeBtn()!.nativeElement.click();
     });
   }
+
+  togglePassword(){
+    this.passwordEl()?.nativeElement.type === "password" 
+    ?  this.passwordEl()?.nativeElement.setAttribute("type", "text")
+    :  this.passwordEl()?.nativeElement.setAttribute("type", "password")
+  }  
 }
