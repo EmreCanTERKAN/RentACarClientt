@@ -7,22 +7,25 @@ import { FlexiToastService } from 'flexi-toast';
   providedIn: 'root'
 })
 export class ErrorService {
+
   readonly #toast = inject(FlexiToastService);
   readonly #router = inject(Router);
 
   handle(err: HttpErrorResponse) {
     console.log(err);
-
     const status = err.status;
     if (status === 403 || status === 422 || status === 500) {
-      const message = err.error.errorMessages;
-      message.forEach((val: string) => {
-        this.#toast.showToast("Hata", val, "error");
+      const messages = err.error.errorMessages;
+      messages.forEach((val: string) => {
+        this.#toast.showToast("Hata!", val, "error");
       });
-    }else if (status === 401){
+    }else if(status === 401){
       const message = "Tekrar giriş yapmalısınız";
-      this.#toast.showToast("Hata!",message,"error");
+      this.#toast.showToast("Hata!",message, "error");
       this.#router.navigateByUrl("/login");
+      localStorage.clear();
+    }else{
+      this.#toast.showToast("Hata!","Bir hata oluştu lütfen yöneticinize danışın","error");
     }
   }
 }
