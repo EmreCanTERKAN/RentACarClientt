@@ -1,16 +1,18 @@
 import { ChangeDetectionStrategy, Component, computed, inject, signal, ViewEncapsulation } from '@angular/core';
 import { BreadcrumbModel, BreadcrumbService } from '../../services/breadcrumb';
 import { httpResource } from '@angular/common/http';
-import { FlexiGridModule, FlexiGridService, StateModel } from 'flexi-grid';
-import { NgxMaskPipe } from 'ngx-mask';
 import { ODataModel } from '../../models/odata.model';
 import { BranchModel } from '../../models/branch.model';
+import { FlexiGridModule, FlexiGridService, StateModel } from 'flexi-grid';
+import { NgxMaskPipe } from 'ngx-mask';
+import { RouterLink } from '@angular/router';
 
 @Component({
   imports: [
     FlexiGridModule,
-    NgxMaskPipe
-],
+    NgxMaskPipe,
+    RouterLink
+  ],
   templateUrl: './branches.html',
   encapsulation: ViewEncapsulation.None,
   changeDetection: ChangeDetectionStrategy.OnPush
