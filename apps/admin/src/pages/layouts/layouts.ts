@@ -1,18 +1,23 @@
-import { ChangeDetectionStrategy, Component, ElementRef, HostListener, inject, Renderer2, signal, ViewEncapsulation } from '@angular/core';
+import { ChangeDetectionStrategy, Component, ElementRef, HostListener, inject, OnDestroy, OnInit, Renderer2, signal, ViewEncapsulation } from '@angular/core';
 import { NavigationModel, navigations } from '../../navigation';
 import { NgClass } from '@angular/common';
-import { Router, RouterLink, RouterOutlet } from '@angular/router';
+import { Router, RouterLink, RouterLinkActive, RouterOutlet } from '@angular/router';
 import Breadcrumb from './breadcrumb/breadcrumb';
 
 @Component({
-  imports: [NgClass,RouterLink,RouterOutlet,Breadcrumb],
+  imports: [
+    NgClass,
+    RouterLink,
+    RouterLinkActive,
+    RouterOutlet,
+    Breadcrumb
+  ],
   templateUrl: './layouts.html',
   encapsulation: ViewEncapsulation.None,
   changeDetection: ChangeDetectionStrategy.OnPush
 })
-export default class Layouts {
+export default class Layouts implements OnInit, OnDestroy {
   private resizeTimer: any;
-
   readonly navigations = signal<NavigationModel[]>(navigations);
 
   readonly #elementRef = inject(ElementRef);
@@ -26,15 +31,15 @@ export default class Layouts {
     this.loadSidebarState();
   }
 
-  logout(){
-    localStorage.clear();
-    this.#router.navigateByUrl("/login");
-  }
-
   ngOnDestroy(): void {
     if (this.resizeTimer) {
       clearTimeout(this.resizeTimer);
     }
+  }
+
+  logout(){
+    localStorage.clear();
+    this.#router.navigateByUrl("/login");
   }
 
   @HostListener('window:resize', ['$event'])

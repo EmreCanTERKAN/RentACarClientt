@@ -14,9 +14,13 @@
     <div class="sidebar-content">
         <ul class="sidebar-menu">
             @for(nav of navigations(); track nav.title){
-                @if(!nav.haveSubMenu){
-                    <li class="menu-item active">
-                        <a [routerLink]="nav.url" class="menu-link">
+                @if(!nav.haveSubNav){
+                    <li
+                      [routerLink]="nav.url"
+                      routerLinkActive="active"
+                      [routerLinkActiveOptions]="{exact:true}"
+                      class="menu-item">
+                        <a class="menu-link">
                             <i class="bi" [ngClass]="nav.icon"></i>
                             <span class="menu-text">{{nav.title}}</span>
                         </a>
@@ -138,7 +142,7 @@
                                     alt="Profile">
                                 <div>
                                     <h6>Admin User</h6>
-                                    <p>admin et rentcar.com</p>
+                                    <p>adminrentcar.com</p>
                                     <span class="role-badge">Süper Admin</span>
                                 </div>
                             </div>
@@ -197,7 +201,7 @@
     <!-- Main Content -->
     <main class="main-content">
         <div class="content-wrapper">
-            <router-outlet/>
+            <router-outlet />
         </div>
     </main>
 </div>

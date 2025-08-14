@@ -2,10 +2,9 @@ import { DatePipe, Location, NgClass } from '@angular/common';
 import { ChangeDetectionStrategy, Component, inject, input, ViewEncapsulation } from '@angular/core';
 import { RouterLink } from '@angular/router';
 import { EntityModel } from '../../models/entity.model';
-import Dashboard from "../../pages/dashboard/dashboard";
 
 @Component({
-  selector: 'app-blank',
+  selector: 'blank',
   imports: [NgClass, RouterLink, DatePipe],
   templateUrl: './blank.html',
   encapsulation: ViewEncapsulation.None,
