@@ -57,6 +57,13 @@ captionTitle="Şube Listesi"
           btnSize="small"
           flexiTooltip
           [routerLink]="['/branches/detail/',item.id]" />
+        <flexi-button
+          btnColor="info"
+          btnIcon="edit"
+          title="Güncelle"
+          btnSize="small"
+          flexiTooltip
+          [routerLink]="['/branches/edit/',item.id]" />
        <flexi-button
           btnColor="danger"
           btnIcon="delete"
