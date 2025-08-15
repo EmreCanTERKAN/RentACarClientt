@@ -51,12 +51,12 @@ captionTitle="Şube Listesi"
 
     <ng-template flexiGridColumnCommandTemplate let-item>
         <flexi-button
-          btnColor="info"
-          btnIcon="edit"
-          title="Güncelle"
+          btnColor="indigo"
+          btnIcon="zoom_in"
+          title="Detay"
           btnSize="small"
           flexiTooltip
-          [routerLink]="['/branches/edit/',item.id]" />
+          [routerLink]="['/branches/detail/',item.id]" />
        <flexi-button
           btnColor="danger"
           btnIcon="delete"
