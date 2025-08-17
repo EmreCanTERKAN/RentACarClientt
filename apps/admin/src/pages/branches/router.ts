@@ -7,15 +7,15 @@ const router: Routes = [
     },
     {
         path: 'add',
-        loadComponent: () => import('./create/create')
+        loadComponent: () => import('./create/create').then(m => m.default)
     },
     {
         path: 'edit/:id',
-        loadComponent: () => import('./create/create')
+        loadComponent: () => import('./create/create').then(m => m.default)
     },
     {
         path: 'detail/:id',
-        loadComponent: () => import('./detail/detail')
+        loadComponent: () => import('./detail/detail').then(m => m.default)
     },
 ]
 
