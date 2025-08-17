@@ -30,6 +30,7 @@ export default class Grid implements AfterViewInit {
   readonly breadcrumbs = input.required<BreadcrumbModel[]>();
   readonly commandColumnWidth = input<string>("150px");
   readonly showIndex = input<boolean>(false);
+  readonly captionTitle = input.required<string>();
 
   readonly columns = contentChildren(FlexiGridColumnComponent, {descendants: true});
   readonly commandTemplateRef = contentChild<TemplateRef<any>>("commandTemplate");
