@@ -5,10 +5,12 @@ import Blank from 'apps/admin/src/components/blank/blank';
 import { BranchModel, initialBranch } from 'apps/admin/src/models/branch.model';
 import { Result } from 'apps/admin/src/models/result.model';
 import { BreadcrumbModel, BreadcrumbService } from 'apps/admin/src/services/breadcrumb';
+import { NgxMaskPipe } from 'ngx-mask';
 
 @Component({
   imports: [
-    Blank
+    Blank,
+    NgxMaskPipe
   ],
   templateUrl: './detail.html',
   encapsulation: ViewEncapsulation.None,
