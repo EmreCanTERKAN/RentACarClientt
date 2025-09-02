@@ -9,16 +9,16 @@ import { Common } from '../../services/common';
     Grid,
     FlexiGridModule,
   ],
-  templateUrl: './users.html',
+  templateUrl: './categories.html',
   encapsulation: ViewEncapsulation.None,
   changeDetection: ChangeDetectionStrategy.OnPush
 })
-export default class Users {
-readonly bredcrumbs = signal<BreadcrumbModel[]>([
+export default class Categories {
+  readonly bredcrumbs = signal<BreadcrumbModel[]>([
     {
-      title: 'Kullanıcılar',
-      icon: 'bi-people',
-      url: '/users',
+      title: 'Kategoriler',
+      icon: 'bi-tags',
+      url: '/categories',
       isActive: true
     }
   ]);

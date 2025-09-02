@@ -32,4 +32,10 @@ export const navigations: NavigationModel[] = [
         icon: 'bi-people',
         permission: 'user:view'
     },
+    {
+        title: 'Kategoriler',
+        url: '/categories',
+        icon: 'bi-tags',
+        permission: 'category:view'
+    },
 ]
